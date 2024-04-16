@@ -1,8 +1,8 @@
 #myself#
+.venv/
 build/
 dist/
 *.xlsx
-*.txt
 *.spec
 secret.py
 green_red.py

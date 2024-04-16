@@ -17,13 +17,10 @@ def SUPER(df, symbol, periods):
     super = ta.supertrend(df.high, df.low, df.close, length= ln, multiplier= mp)
     dir_col = 'SUPERTd_{}_{}'.format(ln, mp)
     super['color'] =super[dir_col].apply(direction)
-    #super = super.rename(columns={'SUPERT_10_3.0': 'super'})
     super_col = 'SUPERT_{}_{}'.format(ln, mp)
     super['super'] = round(super[super_col], p)
     super = super[['super', 'color']]
     
-    #df = pd.concat([df, super], axis=1)
-    #return df
     return super
 
 
@@ -32,19 +29,16 @@ def TSI(df, periods):
     slow = int(periods.split(' ')[1])
     sig = int(periods.split(' ')[2])
     tsi = ta.tsi(df.close, fast=fast, slow= slow, signal= sig)
-    #tsi = tsi.rename(columns={'TSI_13_25_13': 'power', 'TSIs_13_25_13': 'signal'})
     power_col ='TSI_{}_{}_{}'.format(fast, slow, sig)
     signal_col ='TSIs_{}_{}_{}'.format(fast, slow, sig)
     tsi['power'] = round(tsi[power_col], 2)
     tsi['signal'] = round(tsi[signal_col], 2)
     tsi = tsi[['power', 'signal']]
-    #df = pd.concat([df, tsi], axis=1)
-    #return df
     return tsi
 
-symbol = input('(XAUUSD_i)')
-tf = input('(M5)')
-periods = input('(3 7 4 10 2.5)')
+symbol = input('enter symbol')
+tf = input('enter timeframe')
+periods = input('enter periods')
 sound("./sound/Windows Default.wav")
 
 while True:
@@ -54,11 +48,11 @@ while True:
         df = get_data(symbol, time_frame(tf), 100)
         tsi = TSI(df, periods)
         super = SUPER(df, symbol, periods)
-        if tsi.power[97] > tsi.signal[97] and tsi.power[98] < tsi.signal[98] and super.color[98] == 'red' :
-            print('موقعیت فروش در ', symbol)
+        if tsi.power[97] > tsi.signal[97] and (tsi.power[98] - tsi.signal[98] ) < -5 and super.color[98] == 'red' :
+            print('signal for sell in ', symbol)
             sound("./sound/notification.wav")
-        if tsi.power[97] < tsi.signal[97] and tsi.power[98] > tsi.signal[98] and super.color[98] == 'green' :
-            print('موقعیت خرید در ', symbol)
+        if tsi.power[97] < tsi.signal[97] and ( tsi.power[98] - tsi.signal[98] ) > 5 and super.color[98] == 'green' :
+            print('signal for buy in ', symbol)
             sound("./sound/notification.wav")
 
 

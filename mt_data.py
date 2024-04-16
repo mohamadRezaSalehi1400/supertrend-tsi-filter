@@ -1,28 +1,13 @@
 import MetaTrader5 as mt
 import pandas as pd
 from datetime import datetime
-from persiantools.jdatetime import JalaliDateTime
-#from nvdll import speak
-
-def jalal(x, correction):
-    return JalaliDateTime.to_jalali(datetime.fromtimestamp(x -correction))
-
-def dir_indic(x):
-    if x == 0: return 'flat'
-    elif x > 0: return 'صعودی'
-    elif x < 0: return 'نزولی'
 
 def sym_list():
     '''
     این تابع بسته به این که دفعه آخر از مفید تریدر یا متا تریدر استفاده کرده باشیم،
     لیست نماد های بازار ایران یا فارکس را خروجی میدهد 
     '''
-    try:
-        #if not mt.initialize() : return
-        mt.initialize()
-    except:
-        #speak('به meta trader متصل نیست ')
-        return
+        if not mt.initialize() : return
     lst=[]
     symbols=mt.symbols_get()
 
@@ -38,12 +23,9 @@ def sym_info(symbol):
     '''
     تابعی برای گرفتن مشخصات یک نماد
     '''
-    #if not mt.initialize() : return
-    try:
-        mt.initialize()
-    except:
-        #speak('برنامه به meta trader متصل نیست ')
-        return
+    if not mt.initialize() : return
+
+
     info=mt.symbols_get(symbol)[0]
     mt.shutdown()
     return {'name': info.name, 'path': info.path, 'description': info.description, 'digits': info.digits}
@@ -86,32 +68,19 @@ def get_data(sym_name, timeFrame, number_of_cdl):
     Time Open High Low Close
     می باشد.
     '''
-    #if not mt.initialize() : return
-    try:
-        mt.initialize()
-    except:
-        speak('برنامه به متاتریدر متصل نیست ')
-        return
+    if not mt.initialize() : return
     rates=mt.copy_rates_from_pos(sym_name, timeFrame, 0, number_of_cdl)
     if rates is None : return
     df=pd.DataFrame(rates)
-    c = 12600
-    df['j_time'] = df['time'].apply(func= jalal, correction= c)
     df['time']=pd.to_datetime(df['time'], unit='s')
     #تغییر ایندکس به تایم
     #df.set_index(df['time'], inplace=True)
 
     df['atr'] = (df['high'].rolling(33).sum() - df['low'].rolling(33).sum() ) / 33
 
-    df['tenkan'] = (df['high'].rolling(9).max() +df['low'].rolling(9).min())/2
-    df['kijun'] = (df['high'].rolling(26).max() +df['low'].rolling(26).min())/2
-    df['spanA'] = ((df['tenkan'] +df['kijun'])/2 ).shift(26)
-    df['spanB'] = ((df['high'].rolling(52).max() +df['low'].rolling(52).min())/2 ).shift(26)
-    
     #تغییر نام ستون ها
     df = df.rename(columns={'real_volume': 'volume'})
 
-    #df['atr pip'] = df.apply( func= pip, symbol= sym_name, axis=1)
     mt.shutdown()
     #print(df)
     return df
