@@ -7,7 +7,7 @@ def sym_list():
     این تابع بسته به این که دفعه آخر از مفید تریدر یا متا تریدر استفاده کرده باشیم،
     لیست نماد های بازار ایران یا فارکس را خروجی میدهد 
     '''
-        if not mt.initialize() : return
+    if not mt.initialize() : return
     lst=[]
     symbols=mt.symbols_get()
 

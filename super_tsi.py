@@ -39,6 +39,7 @@ def TSI(df, periods):
 symbol = input('enter symbol')
 tf = input('enter timeframe')
 periods = input('enter periods')
+if periods == '' : periods = '13 25 5 10 3'
 sound("./sound/Windows Default.wav")
 
 while True:
