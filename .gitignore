@@ -4,6 +4,7 @@ build/
 dist/
 *.xlsx
 *.spec
+diff.txt
 secret.py
 green_red.py
 # Django #

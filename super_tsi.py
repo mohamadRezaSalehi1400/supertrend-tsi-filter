@@ -56,12 +56,3 @@ while True:
             print('signal for buy in ', symbol)
             sound("./sound/notification.wav")
 
-
-'''
-if __name__=='__main__':
-    df = get_data('XAUUSD_i', time_frame('H1'), 110)
-    periods = input('inter periods')
-    tsi = TSI(df, periods)
-    print(tsi)
-    if not tsi is None : tsi.to_excel('tsi_test.xlsx', index=False)    
-    '''
