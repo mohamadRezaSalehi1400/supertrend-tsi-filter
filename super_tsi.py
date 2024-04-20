@@ -36,8 +36,11 @@ def TSI(df, periods):
     tsi = tsi[['power', 'signal']]
     return tsi
 
+sound("./sound/focusMode.wav")
 symbol = input('enter symbol')
+sound("./sound/focusMode.wav")
 tf = input('enter timeframe')
+sound("./sound/focusMode.wav")
 periods = input('enter periods')
 if periods == '' : periods = '13 25 5 10 3'
 sound("./sound/Windows Default.wav")
