@@ -21,11 +21,11 @@
 2-  در ورودی بعدی timeframe را وارد کنید و emter بزنید.
 مثلا برای timeframe 5 دقیقه، M5  و برای 1 ساعت، H1 را وارد کنید.
 3-  در این مرحله باید 5 عدد را که 3 عدد اول مربوط به تنظیمات tsi و 2 عدد آخر آن مربوط به تنظیمات supertrend است را به این ترتیب وارد کنید:
-*عدد اول: slow period for tsi
-*عدد دوم: fast period for tsi
-*عدد سوم: signal for tsi
-*عدد چهارم: ATR period for supertrend
-*عدد پنجم: ATR multiplier for supertrend
+- عدد اول: slow period for tsi
+- عدد دوم: fast period for tsi
+- عدد سوم: signal for tsi
+- عدد چهارم: ATR period for supertrend
+- عدد پنجم: ATR multiplier for supertrend
 مثلا :
 3 7 4 10 3
 و سپس enter
