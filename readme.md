@@ -17,15 +17,15 @@
 این استراتژی برای بازاری که روند دارد مناسب است و در بازار رنج سیگنال اشتباه می دهد.
 
 ## ورودی ها:
-1- ابتدا نام نماد را وارد کرده و enter بزنید.
-2-  در ورودی بعدی timeframe را وارد کنید و emter بزنید.
+1. ابتدا نام نماد را وارد کرده و enter بزنید.
+2.  در ورودی بعدی timeframe را وارد کنید و emter بزنید.
 مثلا برای timeframe 5 دقیقه، M5  و برای 1 ساعت، H1 را وارد کنید.
-3-  در این مرحله باید 5 عدد را که 3 عدد اول مربوط به تنظیمات tsi و 2 عدد آخر آن مربوط به تنظیمات supertrend است را به این ترتیب وارد کنید:
-- عدد اول: slow period for tsi
-- عدد دوم: fast period for tsi
-- عدد سوم: signal for tsi
-- عدد چهارم: ATR period for supertrend
-- عدد پنجم: ATR multiplier for supertrend
+3.  در این مرحله باید 5 عدد را که 3 عدد اول مربوط به تنظیمات tsi و 2 عدد آخر آن مربوط به تنظیمات supertrend است را به این ترتیب وارد کنید:
+   * عدد اول: slow period for tsi
+   * عدد دوم: fast period for tsi
+   * عدد سوم: signal for tsi
+   * عدد چهارم: ATR period for supertrend
+   * عدد پنجم: ATR multiplier for supertrend
 مثلا :
 3 7 4 10 3
 و سپس enter
@@ -56,15 +56,15 @@ Also, the color of the supertrend line should be red.
 This strategy is suitable for trending market and gives wrong signal in range market.
 
 ## Inputs:
-1- First, enter the name of the symbol and press enter.
-2- In the next entry, enter the timeframe and press enter.
+1. First, enter the name of the symbol and press enter.
+2. In the next entry, enter the timeframe and press enter.
 For example, enter M5 for 5 minutes timeframe and H1 for 1 hour.
-3- In this step, you have to enter 5 numbers, the first 3 numbers are related to tsi settings and the last 2 numbers are related to supertrend settings as follows:
-First number: slow period for tsi
-The second number: fast period for tsi
-The third number: signal for tsi
-The fourth number: ATR period for supertrend
-The fifth number: ATR multiplier for supertrend
+3. In this step, you have to enter 5 numbers, the first 3 numbers are related to tsi settings and the last 2 numbers are related to supertrend settings as follows:
+   * First number: slow period for tsi
+   * The second number: fast period for tsi
+   * The third number: signal for tsi
+   * The fourth number: ATR period for supertrend
+   * The fifth number: ATR multiplier for supertrend
 For example :
 3 7 4 10 3
 and then press enter
