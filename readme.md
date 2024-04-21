@@ -26,9 +26,11 @@
    * عدد سوم: signal for tsi
    * عدد چهارم: ATR period for supertrend
    * عدد پنجم: ATR multiplier for supertrend
+
 مثلا :
 3 7 4 10 3
 و سپس enter
+
 **تذکر:**
 اگر بدون وارد کردن هیچ عددی، enter بزنید،
 به صورت پیش فرض، اعداد 13 25 5 10 3 اعمال خواهد شد.
@@ -65,9 +67,11 @@ For example, enter M5 for 5 minutes timeframe and H1 for 1 hour.
    * The third number: signal for tsi
    * The fourth number: ATR period for supertrend
    * The fifth number: ATR multiplier for supertrend
+
 For example :
 3 7 4 10 3
 and then press enter
+
 **note:**
 If you press enter without entering any number,
 By default, the numbers 13 25 5 10 3 will be applied.
@@ -75,3 +79,5 @@ By default, the numbers 13 25 5 10 3 will be applied.
 ### Very important note:
 The program receives its data through metatrader5.
 Therefore, when running the program, you must have metatrader5 with an active account on your system.
+
+### mrsalehi90@gmail.com
